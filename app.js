@@ -6,7 +6,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 const port = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://localhost/testForAuth')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/testForAuth')
 var db = mongoose.connection
 
 app.use(session({
